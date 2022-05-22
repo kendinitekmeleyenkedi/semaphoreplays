@@ -1,0 +1,13 @@
+---
+- name: Create the user
+  hosts: other
+  remote_user: ansible
+  tasks:
+    - name: Create the user
+      ansible.builtin.user:
+        name: ansibletest
+        comment: ansibletest
+        group: sudo
+        password: '$6$2iOv4NruO0Y$nW8nabBpSAysUa8ac.23d4MTrMMKwU8ynu8usDyUzZbCYzPnGg4Xq47Ef01TdTkOnXl3qIh5UzAYHjPH4HtXj1' #mkpasswd --method=sha-512
+        createhome: yes
+        home: /home/ansibletest
